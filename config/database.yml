@@ -20,6 +20,24 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+# ------- modifs perso pour heroku
+#Coode présent initialement
+#production:
+#  <<: *default
+#  database: db/production.sqlite3
+#
+#production:
+#  <<: *default
+#  database: twapp_production
+#  username: twapp
+#  password: <%= ENV['TWAPP_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  #<<: *default
+  url: <%= ENV['DATABASE_URL'] %>
+# ----- fin des modifs perso

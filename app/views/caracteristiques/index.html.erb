@@ -17,7 +17,7 @@
       <tr>
         <td><%= caracteristique.name %></td>
         <td><%= link_to caracteristique.schema.name, schema_path(caracteristique.schema.id) %></td>
-        <td><%= link_to caracteristique.scchema.site.url, site_path(caracteristique.schema.site.id) %></td>
+        <td><%= link_to caracteristique.schema.site.url, site_path(caracteristique.schema.site.id) %></td>
         <td><%= link_to 'Show', caracteristique %></td>
         <td><%= link_to 'Edit', edit_caracteristique_path(caracteristique) %></td>
         <td><%= link_to 'Destroy', caracteristique, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @schema.name %>
+</p>
+
+<p>
+  <strong>Site:</strong>
+  <%= link_to @schema.site.url, site_path(@schema.site.id) %>
+</p>
+
+<h2>Caractéristiques enregistrées pour ce schéma</h2>
+<p>Vous voulez <%= link_to 'ajouter une caractéristique', new_caracteristique_path %> ?</p>
+<ul>
+  <% @schema.caracteristiques.each do |caracteristique| %>
+    <li><%= link_to caracteristique.name, caracteristique_path(caracteristique.id) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_schema_path(@schema) %> |
+<%= link_to 'Back', schemas_path %>

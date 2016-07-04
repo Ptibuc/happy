@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @site.url %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @site.key %>
+</p>
+
+<p>
+  <strong>Compte:</strong>
+  <%= @site.compte.name %>
+</p>
+
+<h2>Les schémas enregistrés pour ce site</h2>
+<p>Vous voulez <%= link_to 'ajouter un schéma', new_schema_path %> ?</p>
+<ul>
+  <% @site.schemas.each do |schema| %>
+  <li><%= link_to schema.name, schema_path(schema.id) %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

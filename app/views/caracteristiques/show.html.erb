@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site :</strong>
+  <%= link_to @caracteristique.schema.site.url, site_path(@caracteristique.schema.site.id) %>
+</p>
+
+<p>
+  <strong>Schema:</strong>
+  <%= link_to @caracteristique.schema.name, schema_path(@caracteristique.schema.id) %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @caracteristique.name %> [<%= link_to 'Edit', edit_caracteristique_path(@caracteristique) %>]
+</p>
+
+<p>
+  <strong>ID:</strong>
+  <%= @caracteristique.id %>
+</p>
+
+<h2>Les phrases liées à ces caractéristique</h2>
+<p>Commencer par <%= link_to 'ajouter une phrase', new_phrase_path %> ?</p>
+<table>
+  <thead>
+    <tr>
+      <th>Phrase</th>
+      <th>Condition</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @caracteristique.phrases.each do |phrase| %>
+      <tr>
+        <td><%= phrase.libelle %></td>
+        <td><%= phrase.condition %></td>
+        <td><%= link_to 'Editer', edit_phrase_path(phrase.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Liste des caractéristiques', caracteristiques_path %>

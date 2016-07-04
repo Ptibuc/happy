@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @compte.name %>
+</p>
+
+<p>
+  <strong>Key:</strong>
+  <%= @compte.key %>
+</p>
+
+<h2>Liste des utilisateurs</h2>
+<p>Avant, tu veux <%= link_to 'créer un utilisateur', new_user_path %> ?</p>
+<ul>
+<% @compte.users.each do |user| %>
+  <li><%= link_to user.email, user_path(user.id) %></li>
+<% end %>
+</ul>
+
+<h2>Liste des sites du compte</h2>
+<p>Peut-être souhaites-tu <%= link_to 'ajouter un site', new_site_path %> ?</p>
+<ul>
+<% @compte.sites.each do |site| %>
+  <li><%= link_to site.url, site_path(site.id) %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_compte_path(@compte) %> |
+<%= link_to 'Back', comptes_path %>

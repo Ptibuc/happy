@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @phrase.condition %>
+</p>
+
+<p>
+  <strong>Libelle:</strong>
+  <%= @phrase.libelle %>
+</p>
+
+<p>
+  <strong>Caracteristique:</strong>
+  <%= link_to @phrase.caracteristique.name, caracteristique_path(@phrase.caracteristique.id) %>
+</p>
+
+<%= link_to 'Edit', edit_phrase_path(@phrase) %> |
+<%= link_to 'Back', phrases_path %>

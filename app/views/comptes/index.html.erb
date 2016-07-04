@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Comptes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Key</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comptes.each do |compte| %>
+      <tr>
+        <td><%= compte.name %></td>
+        <td><%= compte.key %></td>
+        <td><%= link_to 'Show', compte %></td>
+        <td><%= link_to 'Edit', edit_compte_path(compte) %></td>
+        <td><%= link_to 'Destroy', compte, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Compte', new_compte_path %>

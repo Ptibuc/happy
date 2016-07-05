@@ -30,8 +30,10 @@ module Apicontent
           end
         end
         post do
-          Schema.create(params[:schema])
+          Schema.create!(params[:schema])
         end
+
+        desc "Liste des caractéristiques pour un "
 
       end
 

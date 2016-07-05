@@ -22,6 +22,17 @@ module Apicontent
           end
         end
 
+        desc "Ajouter un schéma"
+        params do
+          requires :schema, type: Hash do
+            requires :name, type: String
+            requires :site_id, type: Integer
+          end
+        end
+        post do
+          Schema.create(params[:schema])
+        end
+
       end
 
     end

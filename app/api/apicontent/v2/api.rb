@@ -34,13 +34,15 @@ module Apicontent
             namespace ':schema' do
               get do
                 #Schema.where(id: params[:schema], site_id: params[:site])
-                Schema.find(params[:schema])
+                #Schema.find(params[:schema])
+                Site.find(params[:site]).schemas.find(params[:schema])
               end
 
               desc 'Retourne la liste des caractéristiques enregistrées pour ce schéma'
               namespace ':caracteristiques' do
                 get do
-                  Schema.find(params[:schema]).caracteristiques
+                  #Schema.find(params[:schema]).caracteristiques
+                  Site.find(params[:site]).schemas.find(params[:schema]).caracteristiques
                 end
 
                 desc 'Retourne la fiche de la caractéristique sélectionnée'
@@ -49,13 +51,15 @@ module Apicontent
                 end
                 namespace ':caracteristique' do
                   get do
-                    Caracteristique.find(params[:caracteristique])
+                    #Caracteristique.find(params[:caracteristique])
+                    Site.find(params[:site]).schemas.find(params[:schema]).caracteristiques.find(params[:caracteristique])
                   end
 
                   desc 'Retourne la liste des phrases pour une caractéristique'
                   namespace ':phrases' do
                     get do
-                      Caracteristique.find(params[:caracteristique]).phrases
+                      #Caracteristique.find(params[:caracteristique]).phrases
+                      Site.find(params[:site]).schemas.find(params[:schema]).caracteristiques.find(params[:caracteristique]).phrases
                     end
 
                     desc 'Retourne la fiche de la phrase'
@@ -64,7 +68,8 @@ module Apicontent
                     end
                     namespace ':phrase' do
                       get do
-                        Phrase.find(params[:phrase])
+                        #Phrase.find(params[:phrase])
+                        Site.find(params[:site]).schemas.find(params[:schema]).caracteristiques.find(params[:caracteristique]).phrases.find(params[:phrase])
                       end
 
                     end
